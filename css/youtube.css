@@ -1,0 +1,10 @@
+.sfh__youtube__share-in-thumbnail {
+	display: none !important;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+
+.yt-lockup-thumbnail.contains-addto:hover .sfh__youtube__share-in-thumbnail {
+	display: block !important;
+}
