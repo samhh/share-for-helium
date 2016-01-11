@@ -1,3 +1,5 @@
+'use strict'
+
 var title = 'Share with Helium'
 
 chrome.contextMenus.create({
@@ -30,6 +32,6 @@ function shareLink(obj) {
 
 function launchHelium(url) {
   chrome.tabs.update({
-    url: 'helium://' + url
+    url: `helium://${url}`
   })
 }
