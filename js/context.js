@@ -1,15 +1,35 @@
+var title = 'Share with Helium'
+
 chrome.contextMenus.create({
-  'title': 'Share with Helium',
+  'title': title,
   'contexts': [
-    'all'
+    'page', 'frame'
   ],
-  'onclick': shareWithHelium
+  'onclick': function (obj) {
+    sharePage(obj)
+  }
 })
 
-function shareWithHelium() {
-  chrome.tabs.query({ active: true, lastFocusedWindow: true }, function (tabs) {
-    chrome.tabs.update({
-      url: 'helium://' + tabs[0].url
-    })
+chrome.contextMenus.create({
+  'title': title,
+  'contexts': [
+    'link'
+  ],
+  'onclick': function (obj) {
+    shareLink(obj)
+  }
+})
+
+function sharePage(obj) {
+  launchHelium(obj.pageUrl)
+}
+
+function shareLink(obj) {
+  launchHelium(obj.linkUrl)
+}
+
+function launchHelium(url) {
+  chrome.tabs.update({
+    url: 'helium://' + url
   })
 }
