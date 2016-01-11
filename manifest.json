@@ -1,0 +1,18 @@
+{
+  "name": "Share for Helium",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "Share your web page with Helium on OS X",
+  "icons": {
+    "256": "img/icon.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "activeTab"
+  ],
+  "background": {
+    "scripts": [
+      "js/context.js"
+    ]
+  }
+}
