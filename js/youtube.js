@@ -22,7 +22,7 @@ function addButtons() {
     let videoID = vids[i].getAttribute('data-video-ids')
 
     let insertedHTML = `
-      <a href="helium://https://www.youtube.com/watch?v=${videoID}">
+      <a href="helium://https://www.youtube.com/watch?v=${videoID}" class="sfh__youtube__share-in-thumbnail-anchor">
         <button class="sfh__youtube__share-in-thumbnail yt-uix-button yt-uix-button-size-small yt-uix-button-default">${title}</button>
       </a>
     `

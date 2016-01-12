@@ -1,3 +1,8 @@
+.sfh__youtube__share-in-thumbnail-anchor {
+	/* Prevent anchor inheriting any styles */
+	all: initial;
+}
+
 .sfh__youtube__share-in-thumbnail {
 	display: none !important;
 	position: absolute;
@@ -5,6 +10,6 @@
 	right: 2px;
 }
 
-.yt-lockup-thumbnail:hover .sfh__youtube__share-in-thumbnail {
+.yt-lockup-thumbnail:hover .sfh__youtube__share-in-thumbnail, .video-list-item:hover .sfh__youtube__share-in-thumbnail {
 	display: block !important;
 }
