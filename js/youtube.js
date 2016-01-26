@@ -5,19 +5,21 @@ let title = 'Share with Helium'
 // Check for video thumbnails again when accessing new page, call once on load
 // Done this way as YouTube works as a SPA and spfdone is called on page change
 // Not checking for page name as needs to run again on "refresh" anyway
-document.addEventListener('spfdone', addButtons)
-addButtons()
+document.addEventListener('spfdone', function() {
+  addButtons(document.getElementsByClassName('addto-button'))
+})
 
-function addButtons() {
-  let vids = document.getElementsByClassName('addto-button')
+// Run once on page load
+addButtons(document.getElementsByClassName('addto-button'))
 
+function addButtons(vids) {
   if (vids.length === 0) return
 
   for (let i = 0; i < vids.length; i++) {
     let triggeredClassName = 'sfh--triggered'
 
-    // Only run function if element has not already been accessed
-    if (vids[i].classList.contains(triggeredClassName)) return
+    // Exit loop if provided object isn't an element or if the element has already been accessed
+    if (vids[i].nodeType !== 1 || vids[i].classList.contains(triggeredClassName)) return
 
     let videoID = vids[i].getAttribute('data-video-ids')
 
