@@ -34,6 +34,19 @@
       ],
       "run_at": "document_end",
       "all_frames": false
+    },
+    {
+      "matches": [
+        "*://*.twitch.tv/*"
+      ],
+      "css": [
+        "css/twitch.css"
+      ],
+      "js": [
+        "js/twitch.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
     }
   ]
 }

@@ -1,6 +1,6 @@
 'use strict'
 
-var title = 'Share with Helium'
+let title = 'Share with Helium'
 
 chrome.contextMenus.create({
   'title': title,
@@ -23,11 +23,27 @@ chrome.contextMenus.create({
 })
 
 function sharePage(obj) {
-  launchHelium(obj.pageUrl)
+  let link = magicRedirect(obj.pageUrl)
+  launchHelium(link)
 }
 
 function shareLink(obj) {
-  launchHelium(obj.linkUrl)
+  let link = magicRedirect(obj.linkUrl)
+  launchHelium(link)
+}
+
+function magicRedirect(link) {
+  if (link.includes('twitch.tv')) {
+    let length = 'twitch.tv/'.length
+    let strIndex = link.indexOf('twitch.tv/')
+
+    let username = link.substring(length + strIndex)
+
+    return `http://player.twitch.tv/?channel=${username}`
+  }
+  else {
+    return link
+  }
 }
 
 function launchHelium(url) {
