@@ -1,6 +1,6 @@
 {
   "name": "Share for Helium",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "manifest_version": 2,
   "minimum_chrome_version": "41.0.2272.76",
   "description": "Share your web page with Helium on OS X.",
