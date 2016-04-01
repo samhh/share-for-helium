@@ -15,11 +15,11 @@ addButtons(document.querySelectorAll(targetQuery))
 let observer = new MutationObserver((mutations) => {
   for (let mutation of mutations) {
     // Only continue if mutation is to tree of nodes
-    if (mutation.type !== 'childList') break
+    if (mutation.type !== 'childList') continue
 
     for (let node of mutation.addedNodes) {
       // Only continue if node is an element
-      if (node.nodeType !== 1) break
+      if (node.nodeType !== 1) continue
 
       let targetLookup = node.querySelectorAll(targetQuery)
 
@@ -39,7 +39,7 @@ function addButtons (vids) {
 
   for (let vid of vids) {
     // Only continue if node is an element
-    if (vid.nodeType !== 1) break
+    if (vid.nodeType !== 1) continue
 
     let videoID = vid.dataset.videoIds
 
