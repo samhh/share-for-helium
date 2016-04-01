@@ -2,26 +2,27 @@
 
 let title = 'Share with Helium'
 
+let triggeredClassName = 'sfh--triggered'
+let targetQuery = `.addto-button:not(.${triggeredClassName})`
+
 // Run once on page load
-addButtons(document.querySelectorAll('.addto-button'))
+addButtons(document.querySelectorAll(targetQuery))
 
 // Watch for any new videos that are loaded and add button to them too
-let observer = new MutationObserver(function(mutations) {
-  let once = false
-
-  mutations.forEach(function(mutation) {
+let observer = new MutationObserver((mutations) => {
+  for (let mutation of mutations) {
     // Only continue if mutation is to tree of nodes
     if (mutation.type !== 'childList') return
 
-    Array.from(mutation.addedNodes).forEach(function(node) {
+    Array.from(mutation.addedNodes).forEach((node) => {
       // Only continue if node is an element
       if (node.nodeType !== 1) return
 
-      console.log(node)
+      let targetLookup = node.querySelectorAll(targetQuery)
 
-      if (node.querySelectorAll('.addto-button')) addButtons(node.querySelectorAll('.addto-button'))
+      if (targetLookup) addButtons(targetLookup)
     })
-  })
+  }
 })
 
 observer.observe(document, {
@@ -30,16 +31,14 @@ observer.observe(document, {
 })
 
 // Add button to each of an array of nodes
-function addButtons(vids) {
+function addButtons (vids) {
   if (!vids) return
 
   Array.from(vids).forEach((vid) => {
-    let triggeredClassName = 'sfh--triggered'
+    // Only continue if node is an element
+    if (vid.nodeType !== 1) return
 
-    // Exit loop if provided object isn't an element or if the element has already been accessed
-    if (vid.nodeType !== 1 || vid.classList.contains(triggeredClassName)) return
-
-    let videoID = vid.getAttribute('data-video-ids')
+    let videoID = vid.dataset.videoIds
 
     let insertedHTML = `
       <a href="helium://https://www.youtube.com/watch?v=${videoID}" class="sfh__youtube__share-in-thumbnail-anchor">
