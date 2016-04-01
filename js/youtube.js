@@ -1,5 +1,8 @@
 'use strict'
 
+// Chrome doesn't support NodeList.prototype[Symbol.iterator] natively yet - this is a dead easy fix for that to allow for..of loops on NodeLists
+NodeList.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator]
+
 let title = 'Share with Helium'
 
 let triggeredClassName = 'sfh--triggered'
@@ -12,16 +15,16 @@ addButtons(document.querySelectorAll(targetQuery))
 let observer = new MutationObserver((mutations) => {
   for (let mutation of mutations) {
     // Only continue if mutation is to tree of nodes
-    if (mutation.type !== 'childList') return
+    if (mutation.type !== 'childList') break
 
-    Array.from(mutation.addedNodes).forEach((node) => {
+    for (let node of mutation.addedNodes) {
       // Only continue if node is an element
-      if (node.nodeType !== 1) return
+      if (node.nodeType !== 1) break
 
       let targetLookup = node.querySelectorAll(targetQuery)
 
       if (targetLookup) addButtons(targetLookup)
-    })
+    }
   }
 })
 
@@ -34,9 +37,9 @@ observer.observe(document, {
 function addButtons (vids) {
   if (!vids) return
 
-  Array.from(vids).forEach((vid) => {
+  for (let vid of vids) {
     // Only continue if node is an element
-    if (vid.nodeType !== 1) return
+    if (vid.nodeType !== 1) break
 
     let videoID = vid.dataset.videoIds
 
@@ -50,5 +53,5 @@ function addButtons (vids) {
 
     // Tag video thumbnail as having been found previously for future runs
     vid.classList.add(triggeredClassName)
-  })
+  }
 }
