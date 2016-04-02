@@ -1,0 +1,22 @@
+.sfh__thumb {
+  display: none;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  background: #6441a5;
+  color: white;
+}
+
+.streams .stream .content .thumb .cap:hover .sfh__thumb,
+.videos .video .content .thumb .cap:hover .sfh__thumb {
+  display: block;
+}
+
+.sfh__thumb:hover {
+  text-decoration: none;
+  background: #7550ba;
+  color: white;
+}
