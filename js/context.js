@@ -7,7 +7,7 @@ chrome.contextMenus.create({
   'contexts': [
     'page', 'frame'
   ],
-  'onclick': function (obj) {
+  'onclick': (obj) => {
     sharePage(obj)
   }
 })
@@ -17,7 +17,7 @@ chrome.contextMenus.create({
   'contexts': [
     'link'
   ],
-  'onclick': function (obj) {
+  'onclick': (obj) => {
     shareLink(obj)
   }
 })
@@ -39,11 +39,9 @@ function magicRedirect(link) {
 
     let username = link.substring(length + strIndex)
 
-    return `http://player.twitch.tv/?channel=${username}`
+    return `https://player.twitch.tv/?channel=${username}`
   }
-  else {
-    return link
-  }
+  else return link
 }
 
 function launchHelium(url) {
