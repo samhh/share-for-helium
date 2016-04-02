@@ -36,7 +36,6 @@ function magicRedirect(link) {
   if (link.includes('twitch.tv')) {
     let length = 'twitch.tv/'.length
     let strIndex = link.indexOf('twitch.tv/')
-
     let username = link.substring(length + strIndex)
 
     return `https://player.twitch.tv/?channel=${username}`

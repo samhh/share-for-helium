@@ -1,4 +1,5 @@
-.sfh__thumb {
+.sfh__thumb--stream,
+.sfh__thumb--video {
   display: none;
   position: absolute;
   top: 3px;
@@ -10,12 +11,20 @@
   color: white;
 }
 
-.streams .stream .content .thumb .cap:hover .sfh__thumb,
-.videos .video .content .thumb .cap:hover .sfh__thumb {
+.sfh__thumb--video {
+  top: auto;
+  right: auto;
+  bottom: 25px;
+  left: 3px;
+}
+
+.streams .stream .content .thumb .cap:hover .sfh__thumb--stream,
+.videos .video .content .thumb .cap:hover .sfh__thumb--video {
   display: block;
 }
 
-.sfh__thumb:hover {
+.sfh__thumb--stream:hover,
+.sfh__thumb--video:hover {
   text-decoration: none;
   background: #7550ba;
   color: white;
