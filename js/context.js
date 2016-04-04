@@ -33,12 +33,23 @@ function shareLink(obj) {
 }
 
 function magicRedirect(link) {
+  console.log(link)
   if (link.includes('twitch.tv')) {
-    let length = 'twitch.tv/'.length
-    let strIndex = link.indexOf('twitch.tv/')
-    let username = link.substring(length + strIndex)
+    if (link.includes('/v/')) {
+      // Videos
+      let length = '/v/'.length
+      let strIndex = link.indexOf('/v/')
+      let username = link.substring(length + strIndex)
 
-    return `https://player.twitch.tv/?channel=${username}`
+      return `https://player.twitch.tv/?video=v${username}`
+    } else {
+      // Streams
+      let length = 'twitch.tv/'.length
+      let strIndex = link.indexOf('twitch.tv/')
+      let username = link.substring(length + strIndex)
+
+      return `https://player.twitch.tv/?channel=${username}`
+    }
   }
   else return link
 }
