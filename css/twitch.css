@@ -18,8 +18,8 @@
   left: 3px;
 }
 
-.streams .stream .content .thumb .cap:hover .sfh__thumb--stream,
-.videos .video .content .thumb .cap:hover .sfh__thumb--video {
+.streams .stream .content .thumb:hover .sfh__thumb--stream,
+.videos .video .content .thumb:hover .sfh__thumb--video {
   display: block;
 }
 
