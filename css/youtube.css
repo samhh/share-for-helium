@@ -1,15 +1,15 @@
-.sfh__youtube__share-in-thumbnail-anchor {
-	/* Prevent anchor inheriting any styles */
-	all: initial;
-}
-
 .sfh__youtube__share-in-thumbnail {
+  /* Prevent anchor inheriting any styles */
+  all: unset;
+
 	display: none !important;
-	position: absolute;
-	top: 2px;
-	right: 2px;
+	position: absolute !important;
+	top: 2px !important;
+	right: 2px !important;
+  padding: 0 5px !important;
 }
 
-.yt-lockup-thumbnail:hover .sfh__youtube__share-in-thumbnail, .video-list-item:hover .sfh__youtube__share-in-thumbnail {
+.yt-lockup-thumbnail:hover .sfh__youtube__share-in-thumbnail,
+.video-list-item:hover .sfh__youtube__share-in-thumbnail {
 	display: block !important;
 }
