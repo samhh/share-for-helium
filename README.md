@@ -1,4 +1,4 @@
-A WebExtension for sharing web videos with Helium on OS X without having to use Safari. Compatible with all modern browsers that support the WebExtension standard, including Chrome and Firefox.
+A WebExtension for sharing web videos with Helium on macOS without having to use Safari. Compatible with all modern browsers that support the WebExtension standard, including Chrome and Firefox.
 
 Chrome Web Store: https://chrome.google.com/webstore/detail/share-for-helium/eohchkmfadpiidgfhobbibfgfpakbikd
 
